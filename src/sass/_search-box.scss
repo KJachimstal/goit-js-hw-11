@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  background-color: #0850b5;
+}
+
+.search-form input[type='text'] {
+  height: 40px;
+  width: 350px;
+  border-radius: 10px;
+  padding-left: 10px;
+  transition: 0.2s ease-out;
+
+  //   &:hover,
+  &:focus {
+    outline: none;
+    border-color: #6cb9d2;
+  }
+}
+
+.search-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: 0.2s ease-out;
+
+  &:hover {
+    background-color: #6cb9d2;
+    font-size: 20px;
+  }
+}
