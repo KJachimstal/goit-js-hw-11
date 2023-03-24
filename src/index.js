@@ -24,10 +24,38 @@ function searchImages(event) {
       },
     })
     .then(function (response) {
-      console.log(JSON.parse(response.request.response));
+      let data = JSON.parse(response.request.response).hits;
+      //   console.log(data.length);
+      renderImages(data);
     })
     .catch(function (error) {
       console.log(error);
     })
     .finally(function () {});
+}
+
+function renderImages(data) {
+  const markup = data
+    .map(({ webformatURL, tags, likes, views, comments, downloads }) => {
+      return `<div class="photo-card">
+    <img src="${webformatURL}" alt="${tags}" loading="lazy" />
+    <div class="info">
+      <p class="info-item">
+        <b>Likes: ${likes}</b>
+      </p>
+      <p class="info-item">
+        <b>Views: ${views}</b>
+      </p>
+      <p class="info-item">
+        <b>Comments: ${comments}</b>
+      </p>
+      <p class="info-item">
+        <b>Downloads: ${downloads}</b>
+      </p>
+    </div>
+  </div>
+    `;
+    })
+    .join('');
+  results.innerHTML = markup;
 }
