@@ -1,3 +1,5 @@
+const results = document.querySelector('.results');
+
 export function renderImages(data) {
   const markup = data
     .map(
@@ -36,5 +38,5 @@ export function renderImages(data) {
       }
     )
     .join('');
-  results.innerHTML = markup;
+  results.insertAdjacentHTML('beforeend', markup);
 }

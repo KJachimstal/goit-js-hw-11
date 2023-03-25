@@ -1,16 +1,22 @@
 .load-more {
   display: block;
   margin: 0 auto;
-  padding: 10px;
+  margin-top: 30px;
+  margin-bottom: 30px;
   font-size: 30px;
-  width: 65px;
-  height: 65px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   transition: 0.2s ease;
   background-color: #fff;
+  visibility: hidden;
 
   &:hover {
     background-color: #6cb9d2;
     font-size: 35px;
   }
+}
+
+.active {
+  visibility: visible;
 }
