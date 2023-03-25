@@ -1,0 +1,17 @@
+.load-more {
+  display: block;
+  margin: 0 auto;
+  padding: 10px;
+  font-size: 30px;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  transition: 0.2s ease-out;
+  background-color: #fff;
+  display: none;
+
+  &:hover {
+    background-color: #6cb9d2;
+    font-size: 35px;
+  }
+}

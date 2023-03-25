@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Page title</title>
-    <link rel="stylesheet" href="./sass/index.scss" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
@@ -12,10 +11,12 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="stylesheet" href="./sass/index.scss" />
     <script defer type="module" src="./index.js"></script>
   </head>
   <body>
     <include src="./partials/search-box.html"></include>
     <div class="results"></div>
+    <button class="fa-solid fa-angle-down load-more" type="button"></button>
   </body>
 </html>
