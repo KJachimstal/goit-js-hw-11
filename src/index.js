@@ -2,14 +2,18 @@ import axios from 'axios';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
-// const searchBox = document.querySelector('#search-form');
-// const searchButton = document.querySelector('.search-button');
 const searchForm = document.querySelector('.search-form');
 const results = document.querySelector('.results');
+const loadMoreButton = document.querySelectorAll('.load-more');
 const axios = require('axios');
+let page = 1;
+
+console.log('asdasd');
 
 searchForm.addEventListener('submit', searchImages);
-// results.addEventListener('click', onImageClick);
+// loadMoreButton.addEventListener('click', loadMoreImages);
+
+// function loadMoreImages() {}
 
 function searchImages(event) {
   event.preventDefault();
@@ -24,15 +28,16 @@ function searchImages(event) {
         orientation: 'horizontal',
         safesearch: true,
         per_page: 40,
+        page: page,
       },
     })
     .then(function (response) {
       let data = JSON.parse(response.request.response).hits;
-      //   console.log(data.length);
       renderImages(data);
       new SimpleLightbox('.results a', {
         captionsData: 'alt',
       });
+      page++;
     })
     .catch(function (error) {
       console.log(error);
@@ -40,43 +45,4 @@ function searchImages(event) {
     .finally(function () {});
 }
 
-function renderImages(data) {
-  const markup = data
-    .map(
-      ({
-        webformatURL,
-        largeImageURL,
-        tags,
-        likes,
-        views,
-        comments,
-        downloads,
-      }) => {
-        return `
-      <div class="photo-card">
-        <div class="gallery">
-        <a href="${largeImageURL}">
-            <img src="${webformatURL}" alt="${tags}" loading="lazy" />
-        </a>
-        </div>
-        <div class="info">
-        <p class="info-item">
-            <b>Likes: </b></br>${likes}
-        </p>
-        <p class="info-item">
-            <b>Views: </b></br>${views}
-        </p>
-        <p class="info-item">
-            <b>Comments: </b></br>${comments}
-        </p>
-        <p class="info-item">
-            <b>Downloads: </b></br>${downloads}
-        </p>
-        </div>
-      </div>
-    `;
-      }
-    )
-    .join('');
-  results.innerHTML = markup;
-}
+renderImages(data);
