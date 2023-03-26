@@ -7,7 +7,6 @@ import { Notify } from 'notiflix';
 const searchForm = document.querySelector('.search-form');
 const loadMoreButton = document.querySelector('.load-more');
 const results = document.querySelector('.results');
-const axios = require('axios');
 let page = 1;
 let limit = 40; //per_page
 let totalPages = 0;
